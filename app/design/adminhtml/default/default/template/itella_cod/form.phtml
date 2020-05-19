@@ -1,0 +1,15 @@
+<?php
+
+$_code = $this->getMethodCode();
+$quote = Mage::getSingleton('checkout/session')->getQuote();
+$_helper = Mage::helper('itella_cod');
+
+$_extraFee = Mage::helper('core')->currency($this->getMethod()->getExtraFee());
+
+?>
+<ul id="payment_form_<?php echo $_code ?>" style="display:none">
+		<li>
+			<?php echo $_description ?><br/>
+			<?php echo $this->__('COD fee: %s', $_extraFee) ?>
+		</li>
+</ul>
